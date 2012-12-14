@@ -1,0 +1,47 @@
+#N canvas -1029 464 649 418 10;
+#X obj -23 80 adc~;
+#X floatatom 270 145 5 0 0 0 - - -;
+#X obj 207 79 vline~ 50;
+#X floatatom 207 58 5 0 0 0 - - -;
+#X obj 47 96 *~;
+#X obj 127 96 *~;
+#X obj 76 113 dac~ 1;
+#X obj 156 113 dac~ 2;
+#X msg 207 26 0.5;
+#X msg 269 26 1000;
+#X obj 64 10 loadbang;
+#X msg 64 44 \; pd dsp 1;
+#X obj 127 159 bandpack-30;
+#X obj 47 159 bandpack-30;
+#X floatatom 241 339 5 0 0 0 - - -;
+#X msg 47 223 send c1 \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9 \$10 \$11
+\$12 \$13 \$14 \$5 \$16 \$17 \$18 \$19 \$20 \$21 \$22 \$23 \$24 \$25
+\$26 \$27 \$28 \$29 \$30;
+#X msg 127 183 send c2 \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9 \$10 \$11
+\$12 \$13 \$14 \$5 \$16 \$17 \$18 \$19 \$20 \$21 \$22 \$23 \$24 \$25
+\$26 \$27 \$28 \$29 \$30;
+#X obj 241 303 netsend 2;
+#X msg 241 267 connect localhost 3000;
+#X connect 0 0 4 0;
+#X connect 0 1 5 0;
+#X connect 1 0 12 1;
+#X connect 1 0 13 1;
+#X connect 2 0 4 1;
+#X connect 2 0 5 1;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 4 0 13 0;
+#X connect 5 0 7 0;
+#X connect 5 0 12 0;
+#X connect 8 0 3 0;
+#X connect 9 0 1 0;
+#X connect 10 0 8 0;
+#X connect 10 0 9 0;
+#X connect 10 0 11 0;
+#X connect 10 0 18 0;
+#X connect 12 0 16 0;
+#X connect 13 0 15 0;
+#X connect 15 0 17 0;
+#X connect 16 0 17 0;
+#X connect 17 0 14 0;
+#X connect 18 0 17 0;
