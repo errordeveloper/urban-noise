@@ -1,14 +1,12 @@
-import json
 import SocketServer
 
 class DatagramHandler(SocketServer.BaseRequestHandler):
     def handle(self):
         samp = self.request[0].strip().strip(';').split(' ')
         #XXX: should we need to raise here (if samp.__len__ =! 31)?
-        chan = samp[0]
-        samp.__delitem__(0)
-        datastreams = [{'id':chan+'.'+str(i), 'current_value':x} for i,x in enumerate(samp)]
-        print json.dumps(datastreams)
+        chan = samp.pop(0)
+        #XXX: find out if I need to look-up the frequency band's value in Hz for datastream name
+        print '\n'.join([chan+'.'+str(i)+','+x for i,x in enumerate(samp)])
 
 
 if __name__ == "__main__":
