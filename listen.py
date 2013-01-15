@@ -1,12 +1,14 @@
 import os, select, socket
 
+from sys import argv
+
 buffer_size = 8192
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind(('localhost', 3000))
 s.setblocking(0)
 
-pd = os.spawnlp(os.P_NOWAIT, 'pd', 'pd', '-nogui', os.environ['LISTEN_PD_PATCH'])
+pd = os.spawnlp(os.P_NOWAIT, 'pd', 'pd', '-nogui', argv[1])
 print "Started pd (PID: %d)" % pd
 
 lookup = [
