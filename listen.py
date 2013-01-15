@@ -6,7 +6,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind(('localhost', 3000))
 s.setblocking(0)
 
-pd = os.spawnlp(os.P_NOWAIT, 'pd', 'pd', '-nogui', 'test-1.pd')
+pd = os.spawnlp(os.P_NOWAIT, 'pd', 'pd', '-nogui', os.environ['LISTEN_PD_PATCH'])
 print "Started pd (PID: %d)" % pd
 
 while True:
