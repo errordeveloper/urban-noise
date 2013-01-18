@@ -8,7 +8,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind(('localhost', 3000))
 s.setblocking(0)
 
-pd = os.spawnlp(os.P_NOWAIT, 'pd', 'pd', '-nogui', argv[1])
+pd = os.spawnlp(os.P_NOWAIT, 'pd', 'pd', '-alsa', '-nodac', '-nogui', argv[1])
 print "Started pd (PID: %d)" % pd
 
 lookup = [
