@@ -1,4 +1,4 @@
-#N canvas -1029 464 649 418 10;
+#N canvas -1414 209 1130 657 10;
 #X obj -23 80 adc~;
 #X floatatom 270 145 5 0 0 0 - - -;
 #X obj 207 79 vline~ 50;
@@ -10,7 +10,7 @@
 #X msg 207 26 0.5;
 #X msg 269 26 1000;
 #X obj 64 10 loadbang;
-#X msg 64 44 \; pd dsp 1;
+#X msg 556 49 \; pd dsp 1;
 #X obj 127 159 bandpack-30;
 #X obj 47 159 bandpack-30;
 #X floatatom 241 339 5 0 0 0 - - -;
@@ -22,6 +22,7 @@
 \$26 \$27 \$28 \$29 \$30;
 #X obj 241 303 netsend 2;
 #X msg 241 267 connect localhost 3000;
+#X obj 556 25 delay 1;
 #X connect 0 0 4 0;
 #X connect 0 1 5 0;
 #X connect 1 0 12 1;
@@ -37,11 +38,12 @@
 #X connect 9 0 1 0;
 #X connect 10 0 8 0;
 #X connect 10 0 9 0;
-#X connect 10 0 11 0;
 #X connect 10 0 18 0;
+#X connect 10 0 19 0;
 #X connect 12 0 16 0;
 #X connect 13 0 15 0;
 #X connect 15 0 17 0;
 #X connect 16 0 17 0;
 #X connect 17 0 14 0;
 #X connect 18 0 17 0;
+#X connect 19 0 11 0;
